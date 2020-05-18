@@ -1,12 +1,11 @@
 pipeline {
     agent any
 	tools {
-        maven 'apache-maven 3.6.3'
+        maven 'LocalMaven'
     }
     stages {
         stage('Build Application') {
             steps {
-		def mvnHome = tool name: 'Apache Maven 3.6.3', type: 'maven'
                 sh 'mvn -f java-tomcat-sample/pom.xml clean package'
             }
             post {
