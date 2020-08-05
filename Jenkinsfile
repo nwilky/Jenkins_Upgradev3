@@ -4,7 +4,7 @@ pipeline {
             stage('Init') {
                   steps {
                         echo 'Hi, this is Nick from Github'
-                        echo 'New line goes right here.'
+                        echo 'A new line goes right here.'
                         echo 'We are Starting the Testing'
                   }
             }
