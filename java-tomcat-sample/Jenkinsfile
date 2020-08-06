@@ -22,6 +22,12 @@ pipeline {
             }
             
         }
+	    stage('Artifact Generation') {
+            steps{
+                sh 'echo "We are generating artifacts for ${BUILD_NUMBER}" > output.txt'
+                archiveArtifacts artifacts: 'output.txt', onlyIfSuccessful: true
+            }
+        }
         stage('Deploy to Production'){
             steps{
                 timeout(time:5, unit:'DAYS'){
