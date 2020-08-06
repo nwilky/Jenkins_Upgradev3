@@ -18,6 +18,12 @@ pipeline {
                         echo 'Building Sample Maven Project'
                   }
             }
+            stage('Artifact Generation') {
+                  steps{
+                        sh 'echo "We are generating artifacts for ${BUILD_NUMBER}" > output.txt'
+                        archiveArtifacts artifacts: 'output.txt', onlyIfSuccessful: true
+                  }
+            }
             stage('Deploy') {
                   steps {
                         echo "Deploying in Staging Area"
